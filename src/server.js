@@ -12,7 +12,8 @@ const app = express();
 
 // Log helper as per project context
 const log = (event, fields) => {
-  console.log(JSON.stringify({ timestamp: new Date().toISOString(), event, ...fields }));
+  const payload = { timestamp: new Date().toISOString(), event, ...fields };
+  process.stdout.write(JSON.stringify(payload) + '\n');
 };
 
 // Set trust proxy for correct IP detection behind nginx
