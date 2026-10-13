@@ -142,6 +142,24 @@
             </div>
         </section>
 
+        <section id="waitlist" class="section" aria-labelledby="waitlist-heading" style="scroll-margin-top: 80px;">
+            <div class="container container--narrow">
+                <div class="card waitlist__card">
+                    <h2 id="waitlist-heading" class="section__heading">Get the launch email.</h2>
+                    <p class="waitlist__reassurance">One email when Beacon opens. Nothing else, ever.</p>
+                    <form method="post" action="/api/waitlist" class="waitlist__form">
+                        <div class="field">
+                            <label for="email-input" class="field__label">Email address</label>
+                            <input id="email-input" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" class="field__input" aria-describedby="email-help-text">
+                            <div id="email-help-text" class="field__help">We will only use this to tell you when Beacon is ready.</div>
+                        </div>
+                        <button type="submit" class="btn btn--primary waitlist__submit-btn">Join the waitlist</button>
+                    </form>
+                    <div id="waitlist-status" role="status" aria-live="polite" class="waitlist__status"></div>
+                    <p class="waitlist__privacy-note">No newsletter, no partner offers, no tracking pixels.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
