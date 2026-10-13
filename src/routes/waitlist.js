@@ -37,7 +37,7 @@ router.use(waitlistRateLimiter);
 router.use(json({ limit: '1kb' }));
 router.use((req, res, next) => {
   if (req.method === 'POST' && !req.is('application/json')) {
-    return res.status(415).json({ error: { code: 'UNSUPPORTED_MEDIA_TYPE', message: 'Content-Type must be application/json.' } });
+    return res.status(415).json({ error: { code: 'UNSUPPORTED_MEDIA_TYPE', message: 'Content type is not application/json.' } });
   }
   next();
 });
