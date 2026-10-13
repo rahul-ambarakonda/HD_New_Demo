@@ -1,30 +1,18 @@
 import express from 'express';
 import helmet from 'helmet';
-import { router as healthRouter } from './routes/health.js';
-import { router as waitlistRouter } from './routes/waitlist.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const PORT = process.env.PORT || 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Log helper as per project context
-app.use((req, res, next) => {
-  req.log = (event, fields) => {
-    const payload = { timestamp: new Date().toISOString(), event, ...fields };
-    process.stdout.write(JSON.stringify(payload) + '\n');
-  };
-  next();
-});
+// Helper for structured JSON logging
+const log = (level, message, context = {}) => {
+  console.log(JSON.stringify({ timestamp: new Date().toISOString(), level, message, ...context }));
+};
 
-// Set trust proxy for correct IP detection behind nginx
+// Trust proxy for correct IP detection behind NGINX
 app.set('trust proxy', 1);
 
-// Apply helmet for security headers. Helmet is applied individually to waitlistRouter as per context.
-// The global helmet middleware is still useful for static files and other routes.
+// Apply Helmet middleware with specified CSP
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
@@ -39,31 +27,20 @@ app.use(helmet({
 }));
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static('public'));
 
-// Routes
-app.use(healthRouter);
-app.use('/api/waitlist', waitlistRouter);
-
-// Error handling middleware
-// eslint-disable-next-line no-unused-vars
+// Global error handling middleware
 app.use((err, req, res, next) => {
-  // Log the server error using the request-scoped log helper
-  req.log('server_error', { code: err.code || 'UNKNOWN_ERROR', message: err.message, stack: err.stack });
-  res.status(err.status || 500).json({
+  log('error', 'Unhandled server error', { path: req.path, method: req.method, error: { message: err.message, stack: err.stack } });
+  res.status(500).json({
     error: {
-      code: err.code || 'SERVER_ERROR',
-      message: err.message || 'Something went wrong. Try again shortly.',
+      code: 'SERVER_ERROR',
+      message: 'Something went wrong. Try again shortly.',
     },
   });
 });
 
 // Start the server
 app.listen(PORT, () => {
-  // Log server started event using the global log (before request-scoped log is available)
-  const globalLog = (event, fields) => {
-    const payload = { timestamp: new Date().toISOString(), event, ...fields };
-    process.stdout.write(JSON.stringify(payload) + '\n');
-  };
-  globalLog('server_started', { port: PORT });
+  log('info', `Server listening on port ${PORT}`);
 });
