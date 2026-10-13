@@ -144,6 +144,26 @@
                 <p class="pricing__note text-small text-ink-soft">These prices are what we intend to charge. Nothing is billed during the waitlist, and we will tell you before that changes.</p>
             </div>
         </section>
+
+        <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading">
+            <div class="container">
+                <div class="card waitlist__card">
+                    <h2 id="waitlist-heading" class="waitlist__heading">Get the launch email.</h2>
+                    <p class="waitlist__reassurance text-lead">One email when Beacon opens. Nothing else, ever.</p>
+
+                    <form class="waitlist__form" method="post" action="/api/waitlist">
+                        <div class="field">
+                            <label for="email-input" class="field__label">Email address</label>
+                            <input type="email" id="email-input" autocomplete="email" inputmode="email" placeholder="you@company.com" class="field__input">
+                            <div id="email-help-text" class="field__help text-small">We will only use this to tell you when Beacon is ready.</div>
+                        </div>
+                        <button type="submit" class="btn btn--primary waitlist__submit-btn">Join the waitlist</button>
+                    </form>
+                    <p class="waitlist__privacy-note text-small text-ink-faint">No newsletter, no partner offers, no tracking pixels.</p>
+                    <div id="waitlist-status" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
