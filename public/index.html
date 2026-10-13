@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beacon — uptime monitoring that wakes you up only when it should</title>
+    <meta name="description" content="Beacon checks your endpoints every 30 seconds from three regions and texts you the moment one stops answering. Join the waitlist.">
+    <link rel="canonical" href="https://beacon.example/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Beacon — know your site is down before your customers tell you">
+    <meta property="og:description" content="Checks every 30 seconds from three regions. SMS first, then a call. Join the waitlist.">
+    <meta property="og:url" content="https://beacon.example/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#1D7A8C">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjgiIGZpbGw9IiMxRDdBOEMiLz48L2NpcmNsZT48L3N2Zz4=">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="site-header__container container">
+            <a href="#top" class="site-header__wordmark">
+                <span class="wordmark__dot">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="#1D7A8C" aria-hidden="true"><circle cx="5" cy="5" r="5"/></svg>
+                </span>
+                Beacon
+            </a>
+            <nav class="site-header__nav">
+                <a href="#features" class="site-header__nav-link">Features</a>
+                <a href="#pricing" class="site-header__nav-link">Pricing</a>
+                <a href="#faq" class="site-header__nav-link">FAQ</a>
+            </nav>
+            <a href="#waitlist" class="btn btn--secondary">Join waitlist</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Placeholder for Features section -->
+        <section id="features" class="section section--sunken" aria-labelledby="features-heading" style="scroll-margin-top: 80px;">
+            <div class="container">
+                <h2 id="features-heading" class="section__heading">Three things, done properly.</h2>
+                <p class="section__intro">We are not building an observability platform. We are building the part that wakes you up.</p>
+                <div class="grid grid--3-col">
+                    <!-- Feature cards will go here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section" aria-labelledby="pricing-heading" style="scroll-margin-top: 80px;">
+            <div class="container">
+                <h2 id="pricing-heading" class="section__heading">Priced per check, not per seat.</h2>
+                <p class="section__intro">Invite the whole team. You pay for what we monitor.</p>
+                <div class="grid grid--3-col">
+                    <!-- Solo Plan Card -->
+                    <div class="plan-card card">
+                        <h3 class="plan-card__name">Solo</h3>
+                        <h2 class="plan-card__price">$0 <span class="plan-card__interval">forever</span></h2>
+                        <ul class="plan-card__features">
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>3 checks</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>60-second interval</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Email alerts</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>7-day history</span></li>
+                        </ul>
+                        <button class="btn btn--primary plan-card__button">Join the waitlist</button>
+                    </div>
+
+                    <!-- Team Plan Card (Featured) -->
+                    <div class="plan-card card plan-card--featured">
+                        <span class="chip chip--signal plan-card__chip">Most popular</span>
+                        <h3 class="plan-card__name">Team</h3>
+                        <h2 class="plan-card__price">$19 <span class="plan-card__interval">per month</span></h2>
+                        <ul class="plan-card__features">
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>25 checks</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>30-second interval</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>SMS and call alerts</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>90-day history</span></li>
+                        </ul>
+                        <button class="btn btn--primary plan-card__button">Join the waitlist</button>
+                    </div>
+
+                    <!-- Business Plan Card -->
+                    <div class="plan-card card">
+                        <h3 class="plan-card__name">Business</h3>
+                        <h2 class="plan-card__price">$79 <span class="plan-card__interval">per month</span></h2>
+                        <ul class="plan-card__features">
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>200 checks</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>15-second interval</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Status page on your domain</span></li>
+                            <li><svg class="plan-card__check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>1-year history</span></li>
+                        </ul>
+                        <button class="btn btn--primary plan-card__button">Join the waitlist</button>
+                    </div>
+                </div>
+                <p class="pricing__honesty-note">These prices are what we intend to charge. Nothing is billed during the waitlist, and we will tell you before that changes.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="section section--sunken" aria-labelledby="faq-heading">
+            <div class="container container--narrow">
+                <h2 id="faq-heading" class="section__heading">Questions people have asked.</h2>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        When does Beacon launch?
+                        <svg class="faq__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.707l-4.354-4.353.708-.708L8 9.293l3.646-3.647.708.708z"/></svg>
+                    </summary>
+                    <p class="faq__answer">We are aiming for the first half of 2027. The waitlist is how we decide who gets in first and roughly how many checks we need to be ready for.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        Do I need to install anything?
+                        <svg class="faq__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.707l-4.354-4.353.708-.708L8 9.293l3.646-3.647.708.708z"/></svg>
+                    </summary>
+                    <p class="faq__answer">No. Beacon calls your public endpoints from the outside, the same way your customers do. There is no agent, no sidecar and no code change.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        What counts as a check?
+                        <svg class="faq__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.707l-4.354-4.353.708-.708L8 9.293l3.646-3.647.708.708z"/></svg>
+                    </summary>
+                    <p class="faq__answer">One URL, checked on one interval. A homepage and an API health route are two checks.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        Will you sell my email address?
+                        <svg class="faq__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.707l-4.354-4.353.708-.708L8 9.293l3.646-3.647.708.708z"/></svg>
+                    </summary>
+                    <p class="faq__answer">No. It goes in one file on one server and it is used to send you one launch email. Reply to that email with the word "remove" and it is deleted.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        Who is building this?
+                        <svg class="faq__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.707l-4.354-4.353.708-.708L8 9.293l3.646-3.647.708.708z"/></svg>
+                    </summary>
+                    <p class="faq__answer">Two engineers who have carried a pager for a combined fourteen years and have opinions about being woken up unnecessarily.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="waitlist" class="section" aria-labelledby="waitlist-heading" style="scroll-margin-top: 80px;">
+            <div class="container container--narrow">
+                <div class="card waitlist__card">
+                    <h2 id="waitlist-heading" class="section__heading">Get the launch email.</h2>
+                    <p class="waitlist__reassurance">One email when Beacon opens. Nothing else, ever.</p>
+                    <form method="post" action="/api/waitlist" class="waitlist__form">
+                        <div class="field">
+                            <label for="email-input" class="field__label">Email address</label>
+                            <input id="email-input" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" class="field__input" aria-describedby="email-help-text">
+                            <div id="email-help-text" class="field__help">We will only use this to tell you when Beacon is ready.</div>
+                        </div>
+                        <button type="submit" class="btn btn--primary waitlist__submit-btn">Join the waitlist</button>
+                    </form>
+                    <div id="waitlist-status" role="status" aria-live="polite" class="waitlist__status"></div>
+                    <p class="waitlist__privacy-note">No newsletter, no partner offers, no tracking pixels.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__container container">
+            <div class="site-footer__col">
+                <a href="#top" class="site-footer__wordmark">
+                    <span class="wordmark__dot">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="#1D7A8C" aria-hidden="true"><circle cx="5" cy="5" r="5"/></svg>
+                    </span>
+                    Beacon
+                </a>
+                <p class="site-footer__description">Uptime monitoring that wakes you up only when it should.</p>
+            </div>
+            <div class="site-footer__col">
+                <h3 class="site-footer__heading">Product</h3>
+                <ul class="site-footer__links">
+                    <li><a href="#features" class="site-footer__link">Features</a></li>
+                    <li><a href="#pricing" class="site-footer__link">Pricing</a></li>
+                    <li><a href="#faq" class="site-footer__link">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h3 class="site-footer__heading">Legal</h3>
+                <ul class="site-footer__links">
+                    <li><a href="#" class="site-footer__link">Privacy</a></li>
+                    <li><a href="#" class="site-footer__link">Terms</a></li>
+                </ul>
+                <p class="site-footer__caption">Coming before launch.</p>
+            </div>
+            <p class="site-footer__copyright">© 2026 Beacon. Not a real product.</p>
+        </div>
+    </footer>
+</body>
+</html>
