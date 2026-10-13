@@ -189,3 +189,115 @@ p, li {
     scroll-behavior: auto !important;
   }
 }
+
+/* Waitlist Status Colors */
+.text-positive {
+  color: var(--color-positive);
+}
+
+.text-negative {
+  color: var(--color-negative);
+}
+
+/* Waitlist Section Styling */
+.waitlist {
+  padding-block: var(--space-9); /* Section vertical rhythm */
+  background-color: var(--color-surface); /* P-06 Waitlist background */
+  scroll-margin-top: 80px; /* For sticky header */
+}
+
+/* Responsive section padding for smaller screens */
+@media (max-width: 640px) {
+  .waitlist {
+    padding-block: var(--space-7);
+  }
+}
+
+.waitlist__card {
+  max-width: 560px; /* Max width for the card */
+  margin-inline: auto; /* Center the card */
+  padding: var(--space-6); /* Card padding */
+}
+
+.waitlist__heading {
+  margin-bottom: var(--space-4); /* Space below heading */
+  text-align: center;
+}
+
+.waitlist__reassurance {
+  margin-bottom: var(--space-6); /* Space below reassurance text */
+  text-align: center;
+}
+
+.waitlist__form {
+  display: flex; /* For horizontal layout on desktop */
+  gap: var(--space-4); /* Gap between input and button */
+  margin-bottom: var(--space-4); /* Space below form */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.field {
+  flex-grow: 1; /* Input takes available space */
+}
+
+.field__label {
+  display: block; /* Label on its own line */
+  margin-bottom: var(--space-2); /* Space below label */
+  font-size: var(--text-small);
+  font-weight: var(--weight-h3); /* As per form field component */
+  color: var(--color-ink-soft);
+}
+
+.field__input {
+  width: 100%;
+  height: 44px; /* Input height */
+  padding-inline: var(--space-4);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-size: var(--text-body);
+}
+
+.field__input::placeholder {
+  color: var(--color-ink-faint);
+}
+
+.field__input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-color: transparent; /* Hide default border when outline is active */
+}
+
+.field__input[aria-invalid="true"] {
+  border-color: var(--color-negative);
+}
+
+.field__help {
+  margin-top: var(--space-2);
+  color: var(--color-ink-faint);
+}
+
+.waitlist__submit-btn {
+  height: 44px; /* Match input height */
+  padding-inline: var(--space-5);
+  flex-shrink: 0; /* Prevent button from shrinking */
+  /* This ensures the button is not full width on desktop, but adjusts */
+}
+
+.btn--block { /* Applied via JS for mobile, and also directly in CSS for general responsive stacking */
+  width: 100%;
+}
+
+.waitlist__privacy-note {
+  margin-bottom: var(--space-4); /* Space below privacy note */
+  text-align: center;
+}
+
+/* Status message styling */
+#waitlist-status {
+  min-height: var(--space-6); /* Reserve space to prevent layout shifts */
+  text-align: center;
+  font-size: var(--text-small);
+  font-weight: var(--weight-h3); /* Make status messages stand out */
+}
