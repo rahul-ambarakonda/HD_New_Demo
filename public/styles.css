@@ -1,50 +1,69 @@
-
 /* Modern CSS Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
 html {
   -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  tab-size: 4;
+  text-size-adjust: 100%;
   font-family: var(--font-sans);
-  line-height: var(--text-body);
-  scroll-behavior: smooth; /* Added for smooth scrolling as per P-01 Header */
+  line-height: var(--text-body-lh); /* Use body line-height for root */
+  scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
-  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: var(--color-ink);
+  background-color: var(--color-surface);
 }
-
-h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote {
+main {
+  display: block;
+}
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
   margin: 0;
 }
-
-ul, ol {
-  list-style: none;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img, svg {
+img, video, canvas, svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
 input, button, textarea, select {
   font: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+strong {
+  font-weight: var(--text-body-weight); /* Ensure strong respects body weight */
+}
+/* Focus outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+/* Remove smooth scroll behavior and transitions for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* Design Tokens */
 :root {
-  /* Colours */
+  /* Color */
   --color-ink: #101720;
   --color-ink-soft: #4B5765;
   --color-ink-faint: #8A94A2;
@@ -63,31 +82,40 @@ input, button, textarea, select {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --text-display: clamp(2.25rem, 5vw, 3.5rem);
-  --text-h2: clamp(1.5rem, 3vw, 2rem);
-  --text-h3: 1.125rem;
-  --text-body: 1rem;
-  --text-lead: 1.125rem;
-  --text-small: 0.875rem;
-  --text-micro: 0.75rem;
+  --text-display-size: clamp(2.25rem, 5vw, 3.5rem);
+  --text-display-lh: 1.05;
+  --text-display-weight: 800;
+  --text-display-ls: -0.02em;
 
-  /* Line heights */
-  --line-height-display: 1.05;
-  --line-height-h2: 1.2;
-  --line-height-h3: 1.35;
-  --line-height-body: 1.6;
-  --line-height-lead: 1.55;
-  --line-height-small: 1.5;
-  --line-height-micro: 1.4;
+  --text-h2-size: clamp(1.5rem, 3vw, 2rem);
+  --text-h2-lh: 1.2;
+  --text-h2-weight: 700;
+  --text-h2-ls: -0.01em;
 
-  /* Weights */
-  --weight-display: 800;
-  --weight-h2: 700;
-  --weight-h3: 650;
-  --weight-body: 400;
-  --weight-lead: 400;
-  --weight-small: 400;
-  --weight-micro: 600;
+  --text-h3-size: 1.125rem;
+  --text-h3-lh: 1.35;
+  --text-h3-weight: 650;
+  --text-h3-ls: 0; /* Default */
+
+  --text-body-size: 1rem;
+  --text-body-lh: 1.6;
+  --text-body-weight: 400;
+  --text-body-ls: 0; /* Default */
+
+  --text-lead-size: 1.125rem;
+  --text-lead-lh: 1.55;
+  --text-lead-weight: 400;
+  --text-lead-ls: 0; /* Default */
+
+  --text-small-size: 0.875rem;
+  --text-small-lh: 1.5;
+  --text-small-weight: 400;
+  --text-small-ls: 0; /* Default */
+
+  --text-micro-size: 0.75rem;
+  --text-micro-lh: 1.4;
+  --text-micro-weight: 600;
+  --text-micro-ls: 0.08em;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -118,186 +146,44 @@ input, button, textarea, select {
   --duration-base: 200ms;
 }
 
-/* Base Typography Rules */
+/* Base Typography */
 body {
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  line-height: var(--line-height-body);
-  color: var(--color-ink);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--text-body-weight);
+  letter-spacing: var(--text-body-ls);
 }
 
 h1 {
-  font-size: var(--text-display);
-  line-height: var(--line-height-display);
-  font-weight: var(--weight-display);
-  letter-spacing: -0.02em;
+  font-size: var(--text-display-size);
+  line-height: var(--text-display-lh);
+  font-weight: var(--text-display-weight);
+  letter-spacing: var(--text-display-ls);
 }
 
 h2 {
-  font-size: var(--text-h2);
-  line-height: var(--line-height-h2);
-  font-weight: var(--weight-h2);
-  letter-spacing: -0.01em;
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-lh);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-ls);
 }
 
 h3 {
-  font-size: var(--text-h3);
-  line-height: var(--line-height-h3);
-  font-weight: var(--weight-h3);
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-lh);
+  font-weight: var(--text-h3-weight);
+  letter-spacing: var(--text-h3-ls);
 }
 
-p, li {
-  font-size: var(--text-body);
-  line-height: var(--line-height-body);
-  font-weight: var(--weight-body);
-  max-inline-size: 65ch; /* Measure cap */
+p {
+  max-width: 65ch; /* Measure cap */
 }
 
-.text-lead {
-  font-size: var(--text-lead);
-  line-height: var(--line-height-lead);
-  font-weight: var(--weight-lead);
-}
-
-.text-small {
-  font-size: var(--text-small);
-  line-height: var(--line-height-small);
-  font-weight: var(--weight-small);
-}
-
-.text-micro {
-  font-size: var(--text-micro);
-  line-height: var(--line-height-micro);
-  font-weight: var(--weight-micro);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Container Class */
+/* Container */
 .container {
   max-width: var(--container);
-  margin-inline: auto; /* Center the container */
-  padding-inline: var(--space-5); /* Horizontal padding */
-}
-
-/* prefers-reduced-motion media query for transitions and smooth scroll */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    transition-duration: 0ms !important;
-    animation-duration: 0ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Waitlist Status Colors */
-.text-positive {
-  color: var(--color-positive);
-}
-
-.text-negative {
-  color: var(--color-negative);
-}
-
-/* Waitlist Section Styling */
-.waitlist {
-  padding-block: var(--space-9); /* Section vertical rhythm */
-  background-color: var(--color-surface); /* P-06 Waitlist background */
-  scroll-margin-top: 80px; /* For sticky header */
-}
-
-/* Responsive section padding for smaller screens */
-@media (max-width: 640px) {
-  .waitlist {
-    padding-block: var(--space-7);
-  }
-}
-
-.waitlist__card {
-  max-width: 560px; /* Max width for the card */
-  margin-inline: auto; /* Center the card */
-  padding: var(--space-6); /* Card padding */
-}
-
-.waitlist__heading {
-  margin-bottom: var(--space-4); /* Space below heading */
-  text-align: center;
-}
-
-.waitlist__reassurance {
-  margin-bottom: var(--space-6); /* Space below reassurance text */
-  text-align: center;
-}
-
-.waitlist__form {
-  display: flex; /* For horizontal layout on desktop */
-  gap: var(--space-4); /* Gap between input and button */
-  margin-bottom: var(--space-4); /* Space below form */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.field {
-  flex-grow: 1; /* Input takes available space */
-}
-
-.field__label {
-  display: block; /* Label on its own line */
-  margin-bottom: var(--space-2); /* Space below label */
-  font-size: var(--text-small);
-  font-weight: var(--weight-h3); /* As per form field component */
-  color: var(--color-ink-soft);
-}
-
-.field__input {
-  width: 100%;
-  height: 44px; /* Input height */
-  padding-inline: var(--space-4);
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--color-surface);
-  color: var(--color-ink);
-  font-size: var(--text-body);
-}
-
-.field__input::placeholder {
-  color: var(--color-ink-faint);
-}
-
-.field__input:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-color: transparent; /* Hide default border when outline is active */
-}
-
-.field__input[aria-invalid="true"] {
-  border-color: var(--color-negative);
-}
-
-.field__help {
-  margin-top: var(--space-2);
-  color: var(--color-ink-faint);
-}
-
-.waitlist__submit-btn {
-  height: 44px; /* Match input height */
-  padding-inline: var(--space-5);
-  flex-shrink: 0; /* Prevent button from shrinking */
-  /* This ensures the button is not full width on desktop, but adjusts */
-}
-
-.btn--block { /* Applied via JS for mobile, and also directly in CSS for general responsive stacking */
-  width: 100%;
-}
-
-.waitlist__privacy-note {
-  margin-bottom: var(--space-4); /* Space below privacy note */
-  text-align: center;
-}
-
-/* Status message styling */
-#waitlist-status {
-  min-height: var(--space-6); /* Reserve space to prevent layout shifts */
-  text-align: center;
-  font-size: var(--text-small);
-  font-weight: var(--weight-h3); /* Make status messages stand out */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
 }
